@@ -30,7 +30,7 @@ mkdir -p $2
 echo $res | sed 's/ /\n/g' | sort > $2/"iperf.csv"
 
 # Count the number of iperf client flows
-num_flows=`jq '.end.sum_sent.seconds' $1 | cut -d. -f1` 
+num_flows=`jq '.["end"].sum_sent.seconds' $1 | cut -d. -f1` 
 
 # Create a directory 'results' to store all flows data
 mkdir -p $2/results
