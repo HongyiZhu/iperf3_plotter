@@ -20,7 +20,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Convert iperf's JSON output to CSV
-res=`cat $1 | jq -r '.intervals[].streams[] | [.socket, .start, .end, .seconds, .bytes, .bits_per_second, .retransmits, .snd_cwnd, .rtt, .rttvar, .pmtu, .omitted] | @csv'`
+res=`cat $1 | jq -r '.intervals[].streams[] | [.socket, .start, .["end"], .seconds, .bytes, .bits_per_second, .retransmits, .snd_cwnd, .rtt, .rttvar, .pmtu, .omitted] | @csv'`
 
 mkdir -p $2
 
